@@ -8,6 +8,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -15,13 +18,13 @@ import javax.swing.JTable;
 public class customer extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txfID;
 	private JTextField txfName;
 	private JTextField txfPhone;
 	private JTextField txfAddress;
-	private JTable tableCus;
 	private JTextField txfFind;
-
+	private JTable tableCus;
+	private JDateChooser txdate;
+	
 	public customer() {
 		setOpaque(false);
 		setBorder(new LineBorder(new Color(25, 25, 112)));
@@ -47,14 +50,6 @@ public class customer extends JPanel {
 		lbID.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		lbID.setBounds(20, 10, 100, 30);
 		panelCus.add(lbID);
-		
-		txfID = new JTextField();
-		txfID.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		txfID.setForeground(new Color(25, 25, 112));
-		txfID.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		txfID.setBounds(90, 13, 320, 25);
-		panelCus.add(txfID);
-		txfID.setColumns(10);
 		
 		JLabel lbName = new JLabel("Name");
 		lbName.setForeground(new Color(25, 25, 112));
@@ -89,14 +84,16 @@ public class customer extends JPanel {
 		lbDob.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		lbDob.setBounds(200, 90, 100, 30);
 		panelCus.add(lbDob);
-			
-		JComboBox cbDob = new JComboBox();
-		cbDob.setForeground(new Color(25, 25, 112));
-		cbDob.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		cbDob.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		cbDob.setBackground(new Color(245, 255, 250));
-		cbDob.setBounds(290, 93, 120, 25);
-		panelCus.add(cbDob);
+		
+		txdate = new JDateChooser();
+		txdate.getCalendarButton().setForeground(new Color(25, 25, 112));
+		txdate.getCalendarButton().setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
+		txdate.setBounds(290, 93, 120, 25);
+		txdate.setForeground(new Color(25, 25, 112));
+		txdate.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
+		txdate.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		txdate.setBackground(new Color(245, 255, 250));
+		panelCus.add(txdate);
 		
 		JLabel lbPhone = new JLabel("Phone");
 		lbPhone.setForeground(new Color(25, 25, 112));
@@ -166,6 +163,28 @@ public class customer extends JPanel {
 		btnSave.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
 		btnSave.setBounds(440, 170, 90, 30);
 		panelCus.add(btnSave);
+		
+		JLabel lblStatus = new JLabel("Status");
+		lblStatus.setForeground(new Color(25, 25, 112));
+		lblStatus.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
+		lblStatus.setBounds(221, 10, 79, 30);
+		panelCus.add(lblStatus);
+		
+		JComboBox cbStatus = new JComboBox();
+		cbStatus.setForeground(new Color(25, 25, 112));
+		cbStatus.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
+		cbStatus.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		cbStatus.setBackground(new Color(245, 255, 250));
+		cbStatus.setBounds(290, 13, 120, 25);
+		panelCus.add(cbStatus);
+		
+		JComboBox cbID = new JComboBox();
+		cbID.setForeground(new Color(25, 25, 112));
+		cbID.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
+		cbID.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		cbID.setBackground(new Color(245, 255, 250));
+		cbID.setBounds(91, 13, 120, 25);
+		panelCus.add(cbID);
 		
 		JLabel lbCusList = new JLabel("CUSTOMER LIST");
 		lbCusList.setHorizontalAlignment(SwingConstants.CENTER);

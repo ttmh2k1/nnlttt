@@ -2,19 +2,21 @@ package GUI;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import java.awt.Canvas;
 
-public class employee extends JPanel {
-
+public class employee extends JPanel {	
 	private static final long serialVersionUID = 1L;
 	private JTextField txfID;
 	private JTextField txfName;
@@ -23,8 +25,9 @@ public class employee extends JPanel {
 	private JTable tableEmp;
 	private JTextField txfEmail;
 	private JTextField txfPasswd;
-	private JTextField textField;
-
+	private JTextField txfFind;
+	private JDateChooser txdate;
+	
 	public employee() {
 		setOpaque(false);
 		setBorder(new LineBorder(new Color(25, 25, 112)));
@@ -93,22 +96,22 @@ public class employee extends JPanel {
 		lbDob.setForeground(new Color(25, 25, 112));
 		lbDob.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
-		JComboBox cbDob = new JComboBox();
-		cbDob.setBounds(70, 93, 100, 25);
-		panelEmp.add(cbDob);
-		cbDob.setForeground(new Color(25, 25, 112));
-		cbDob.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		cbDob.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		cbDob.setBackground(new Color(245, 255, 250));
+		txdate = new JDateChooser();
+		txdate.setBounds(70, 93, 120, 25);
+		panelEmp.add(txdate);
+		txdate.setForeground(new Color(25, 25, 112));
+		txdate.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
+		txdate.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		txdate.setBackground(new Color(245, 255, 250));
 		
 		JLabel lbGender = new JLabel("Gender");
-		lbGender.setBounds(180, 90, 100, 30);
+		lbGender.setBounds(197, 90, 100, 30);
 		panelEmp.add(lbGender);
 		lbGender.setForeground(new Color(25, 25, 112));
 		lbGender.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
 		JComboBox cbGender = new JComboBox();
-		cbGender.setBounds(235, 93, 100, 25);
+		cbGender.setBounds(260, 93, 75, 25);
 		panelEmp.add(cbGender);
 		cbGender.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		cbGender.setBackground(new Color(245, 255, 250));
@@ -241,13 +244,13 @@ public class employee extends JPanel {
 		cbFilter.setBounds(265, 285, 80, 20);
 		add(cbFilter);
 		
-		textField = new JTextField();
-		textField.setForeground(new Color(25, 25, 112));
-		textField.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
-		textField.setColumns(10);
-		textField.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		textField.setBounds(350, 285, 130, 20);
-		add(textField);
+		txfFind = new JTextField();
+		txfFind.setForeground(new Color(25, 25, 112));
+		txfFind.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
+		txfFind.setColumns(10);
+		txfFind.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		txfFind.setBounds(350, 285, 130, 20);
+		add(txfFind);
 		
 		JButton btnFind = new JButton("Find");
 		btnFind.setForeground(new Color(25, 25, 112));
