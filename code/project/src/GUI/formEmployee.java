@@ -13,8 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 
 
@@ -35,13 +33,14 @@ public class formEmployee extends JFrame {
 		});
 	}
 	customer fCustomer = new customer();
+	product fProduct =new product();
 	
 	public formEmployee() {
 		setBackground(new Color(25, 25, 112));
 		setTitle("Employee");
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 701, 500);
+		setBounds(100, 100, 710, 540);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,7 +51,7 @@ public class formEmployee extends JFrame {
 		panel.setOpaque(false);
 		panel.setBorder(new LineBorder(new Color(25, 25, 112)));
 		panel.setBackground(new Color(235, 255, 255));
-		panel.setBounds(0, 0, 135, 460);
+		panel.setBounds(0, 0, 135, 500);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -60,17 +59,16 @@ public class formEmployee extends JFrame {
 		btnCus.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnCus.setOpaque(false);
 		btnCus.setBackground(new Color(176, 196, 222));
-		btnCus.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnCus.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnCus.setForeground(new Color(25, 25, 112));
 		btnCus.setBounds(10, 30, 115, 35);
 		panel.add(btnCus);
 				
-		
 		JButton btnPro = new JButton("Product");
 		btnPro.setOpaque(false);
 		btnPro.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnPro.setBackground(new Color(176, 196, 222));
-		btnPro.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnPro.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnPro.setForeground(new Color(25, 25, 112));
 		btnPro.setBounds(10, 80, 115, 35);
 		panel.add(btnPro);
@@ -79,7 +77,7 @@ public class formEmployee extends JFrame {
 		btnBill.setOpaque(false);
 		btnBill.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnBill.setBackground(new Color(176, 196, 222));
-		btnBill.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnBill.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnBill.setForeground(new Color(25, 25, 112));
 		btnBill.setBounds(10, 130, 115, 35);
 		panel.add(btnBill);
@@ -88,7 +86,7 @@ public class formEmployee extends JFrame {
 		btnHistory.setOpaque(false);
 		btnHistory.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnHistory.setBackground(new Color(176, 196, 222));
-		btnHistory.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnHistory.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnHistory.setForeground(new Color(25, 25, 112));
 		btnHistory.setBounds(10, 180, 115, 35);
 		panel.add(btnHistory);
@@ -97,7 +95,7 @@ public class formEmployee extends JFrame {
 		btnProfile.setOpaque(false);
 		btnProfile.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnProfile.setForeground(new Color(25, 25, 112));
-		btnProfile.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnProfile.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnProfile.setBackground(new Color(176, 196, 222));
 		btnProfile.setBounds(10, 230, 115, 35);
 		panel.add(btnProfile);
@@ -106,16 +104,22 @@ public class formEmployee extends JFrame {
 		btnLogOut.setOpaque(false);
 		btnLogOut.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnLogOut.setForeground(new Color(25, 25, 112));
-		btnLogOut.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 16));
+		btnLogOut.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 16));
 		btnLogOut.setBackground(new Color(176, 196, 222));
-		btnLogOut.setBounds(10, 390, 115, 35);
+		btnLogOut.setBounds(10, 440, 115, 35);
 		panel.add(btnLogOut);
 		
 		fCustomer.setVisible(false);
 		fCustomer.setOpaque(false);
-		fCustomer.setBounds(135, 0, 550, 460);
+		fCustomer.setBounds(135, 0, 559, 500);
 		fCustomer.setBackground(new Color(235, 255, 250));
 		contentPane.add(fCustomer);
+		
+		fProduct.setVisible(false);
+		fProduct.setOpaque(false);
+		fProduct.setBounds(135, 0, 559, 500);
+		fProduct.setBackground(new Color(235, 255, 250));
+		contentPane.add(fProduct);
 		
 		JLabel bg =new JLabel();
 		bg.setBounds(0,0,700,500);
@@ -125,13 +129,21 @@ public class formEmployee extends JFrame {
 		
 		btnCus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Hide();
 				fCustomer.setVisible(true);
 			}
 		});
 		
+		btnPro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Hide();
+				fProduct.setVisible(true);
+			}
+		});
 	}
 	
 	void Hide() {
 		fCustomer.setVisible(false);
+		fProduct.setVisible(false);
 	}
 }

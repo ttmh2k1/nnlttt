@@ -16,12 +16,13 @@ import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+import javax.swing.JRadioButton;
 
 public class formLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txfUsername;
 	private JPasswordField passwordField;
 
 	public static void main(String[] args) {
@@ -58,35 +59,35 @@ public class formLogin extends JFrame {
 		lbBrand.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 30));
 		lbBrand.setBounds(71, 30, 241, 50);
 		mainPanel.add(lbBrand);
+		
+		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
+		rdbtnAdmin.setForeground(new Color(25, 25, 112));
+		rdbtnAdmin.setOpaque(false);
+		rdbtnAdmin.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
+		rdbtnAdmin.setBounds(70, 109, 109, 23);
+		mainPanel.add(rdbtnAdmin);
+		
+		JRadioButton rdbtnEmployee = new JRadioButton("Employee");
+		rdbtnEmployee.setOpaque(false);
+		rdbtnEmployee.setForeground(new Color(25, 25, 112));
+		rdbtnEmployee.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
+		rdbtnEmployee.setBounds(200, 109, 109, 23);
+		mainPanel.add(rdbtnEmployee);
 
-		JCheckBox chbAd = new JCheckBox("Admin");
-		chbAd.setOpaque(false);
-		chbAd.setForeground(new Color(25, 25, 112));
-		chbAd.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
-		chbAd.setBounds(70, 105, 110, 30);
-		mainPanel.add(chbAd);
-
-		JCheckBox chbEmp = new JCheckBox("Employee");
-		chbEmp.setOpaque(false);
-		chbEmp.setForeground(new Color(25, 25, 112));
-		chbEmp.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
-		chbEmp.setBounds(200, 105, 110, 30);
-		mainPanel.add(chbEmp);
-
-		textField = new JTextField();
-		textField.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		textField.setHorizontalAlignment(SwingConstants.LEFT);
-		textField.setForeground(new Color(25, 25, 112));
-		textField.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 16));
-		textField.setColumns(10);
-		textField.setBounds(155, 160, 190, 25);
-		mainPanel.add(textField);
-
-		JLabel lbUser = new JLabel("Username");
-		lbUser.setForeground(new Color(25, 25, 112));
-		lbUser.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
-		lbUser.setBounds(45, 160, 90, 25);
-		mainPanel.add(lbUser);
+		JLabel lbPhone = new JLabel("Phone");
+		lbPhone.setForeground(new Color(25, 25, 112));
+		lbPhone.setFont(new Font("MS Reference Sans Serif", Font.BOLD, 15));
+		lbPhone.setBounds(45, 160, 90, 25);
+		mainPanel.add(lbPhone);
+		
+				txfUsername = new JTextField();
+				txfUsername.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+				txfUsername.setHorizontalAlignment(SwingConstants.LEFT);
+				txfUsername.setForeground(new Color(25, 25, 112));
+				txfUsername.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 16));
+				txfUsername.setColumns(10);
+				txfUsername.setBounds(155, 160, 190, 25);
+				mainPanel.add(txfUsername);
 
 		JLabel lblPw = new JLabel("Password");
 		lblPw.setForeground(new Color(25, 25, 112));
