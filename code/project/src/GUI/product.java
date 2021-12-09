@@ -13,6 +13,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import Controller.SanPhamController;
+
 import javax.swing.DefaultComboBoxModel;
 
 public class product extends JPanel {
@@ -22,7 +25,7 @@ public class product extends JPanel {
 	private JTextField txfName;
 	private JTextField txfPrice;
 	private JTextField txfQuantity;
-	private JTextField textField;
+	private JTextField txfFind;
 	private JTable table;
 	private JButton btnFind;
 	private JComboBox cbFilter;
@@ -183,13 +186,13 @@ public class product extends JPanel {
 		cbFilter.setBounds(265, 255, 80, 20);
 		add(cbFilter);
 		
-		textField = new JTextField();
-		textField.setForeground(new Color(25, 25, 112));
-		textField.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
-		textField.setColumns(10);
-		textField.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		textField.setBounds(350, 255, 130, 20);
-		add(textField);
+		txfFind = new JTextField();
+		txfFind.setForeground(new Color(25, 25, 112));
+		txfFind.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
+		txfFind.setColumns(10);
+		txfFind.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		txfFind.setBounds(350, 255, 130, 20);
+		add(txfFind);
 		
 		btnFind = new JButton("Find");
 		btnFind.setForeground(new Color(25, 25, 112));
@@ -213,6 +216,7 @@ public class product extends JPanel {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-
+		
+		SanPhamController controll = new SanPhamController(txfID, txfName, txfPrice, txfQuantity, txfFind, table, btnFind, cbFilter, cbID, btnSave, btnCancel, btnDisable, btnEdit, btnAdd);
 	}
 }
