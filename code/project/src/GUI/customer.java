@@ -14,6 +14,8 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.DefaultComboBoxModel;
 
 public class customer extends JPanel {
 
@@ -22,8 +24,16 @@ public class customer extends JPanel {
 	private JTextField txfPhone;
 	private JTextField txfAddress;
 	private JTextField txfFind;
-	private JTable tableCus;
 	private JDateChooser txdate;
+	private JTextField txfId;
+	private JComboBox cbGender;
+	private JButton btnAdd;
+	private JButton btnEdit;
+	private JButton btnCancel;
+	private JButton btnSave;
+	private JComboBox cbFilter;
+	private JButton btnFind;
+	private JTable table;
 	
 	public customer() {
 		setOpaque(false);
@@ -71,7 +81,8 @@ public class customer extends JPanel {
 		lbGender.setBounds(20, 90, 100, 30);
 		panelCus.add(lbGender);
 		
-		JComboBox cbGender = new JComboBox();
+		cbGender = new JComboBox();
+		cbGender.setModel(new DefaultComboBoxModel(new String[] {"Nam", "Nữ"}));
 		cbGender.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		cbGender.setBackground(new Color(245, 255, 250));
 		cbGender.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
@@ -123,7 +134,7 @@ public class customer extends JPanel {
 		txfAddress.setBounds(90, 173, 320, 25);
 		panelCus.add(txfAddress);
 		
-		JButton btnAdd = new JButton("Add");
+		btnAdd = new JButton("Add");
 		btnAdd.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnAdd.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnAdd.setBackground(new Color(204, 204, 255));
@@ -132,7 +143,7 @@ public class customer extends JPanel {
 		btnAdd.setBounds(440, 10, 90, 30);
 		panelCus.add(btnAdd);
 		
-		JButton btnEdit = new JButton("Edit");
+		btnEdit = new JButton("Edit");
 		btnEdit.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnEdit.setBackground(new Color(204, 204, 255));
 		btnEdit.setForeground(new Color(25, 25, 112));
@@ -140,15 +151,7 @@ public class customer extends JPanel {
 		btnEdit.setBounds(440, 50, 90, 30);
 		panelCus.add(btnEdit);
 		
-		JButton btnDisable = new JButton("Disable");
-		btnDisable.setForeground(new Color(25, 25, 112));
-		btnDisable.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
-		btnDisable.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		btnDisable.setBackground(new Color(204, 204, 255));
-		btnDisable.setBounds(440, 90, 90, 30);
-		panelCus.add(btnDisable);
-		
-		JButton btnCancel = new JButton("Cancel");
+		btnCancel = new JButton("Cancel");
 		btnCancel.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnCancel.setBackground(new Color(204, 204, 255));
 		btnCancel.setForeground(new Color(25, 25, 112));
@@ -156,7 +159,7 @@ public class customer extends JPanel {
 		btnCancel.setBounds(440, 130, 90, 30);
 		panelCus.add(btnCancel);
 		
-		JButton btnSave = new JButton("Save");
+		btnSave = new JButton("Save");
 		btnSave.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnSave.setBackground(new Color(204, 204, 255));
 		btnSave.setForeground(new Color(25, 25, 112));
@@ -164,27 +167,13 @@ public class customer extends JPanel {
 		btnSave.setBounds(440, 170, 90, 30);
 		panelCus.add(btnSave);
 		
-		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setForeground(new Color(25, 25, 112));
-		lblStatus.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
-		lblStatus.setBounds(221, 10, 79, 30);
-		panelCus.add(lblStatus);
-		
-		JComboBox cbStatus = new JComboBox();
-		cbStatus.setForeground(new Color(25, 25, 112));
-		cbStatus.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		cbStatus.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		cbStatus.setBackground(new Color(245, 255, 250));
-		cbStatus.setBounds(290, 13, 120, 25);
-		panelCus.add(cbStatus);
-		
-		JComboBox cbID = new JComboBox();
-		cbID.setForeground(new Color(25, 25, 112));
-		cbID.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
-		cbID.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
-		cbID.setBackground(new Color(245, 255, 250));
-		cbID.setBounds(91, 13, 120, 25);
-		panelCus.add(cbID);
+		txfId = new JTextField();
+		txfId.setForeground(new Color(25, 25, 112));
+		txfId.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
+		txfId.setColumns(10);
+		txfId.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
+		txfId.setBounds(90, 10, 160, 25);
+		panelCus.add(txfId);
 		
 		JLabel lbCusList = new JLabel("CUSTOMER LIST");
 		lbCusList.setHorizontalAlignment(SwingConstants.CENTER);
@@ -193,7 +182,8 @@ public class customer extends JPanel {
 		lbCusList.setBounds(10, 240, 185, 30);
 		add(lbCusList);
 
-		JComboBox cbFilter = new JComboBox();
+		cbFilter = new JComboBox();
+		cbFilter.setModel(new DefaultComboBoxModel(new String[] {"ID", "Tên"}));
 		cbFilter.setForeground(new Color(25, 25, 112));
 		cbFilter.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
 		cbFilter.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -209,7 +199,7 @@ public class customer extends JPanel {
 		txfFind.setBounds(350, 245, 130, 20);
 		add(txfFind);
 		
-		JButton btnFind = new JButton("Find");
+		btnFind = new JButton("Find");
 		btnFind.setForeground(new Color(25, 25, 112));
 		btnFind.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 12));
 		btnFind.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -225,10 +215,12 @@ public class customer extends JPanel {
 		add(panelCusList);
 		panelCusList.setLayout(null);
 		
-		tableCus = new JTable();
-		tableCus.setBackground(new Color(176, 196, 222));
-		tableCus.setBounds(0, 170, 530, -169);
-		panelCusList.add(tableCus);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 540, 133);
+		panelCusList.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
 
 	}
 }
