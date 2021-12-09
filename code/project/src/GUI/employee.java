@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import java.awt.Canvas;
 import javax.swing.JScrollPane;
+import javax.swing.DefaultComboBoxModel;
 
 public class employee extends JPanel {	
 	private static final long serialVersionUID = 1L;
@@ -84,6 +85,7 @@ public class employee extends JPanel {
 		lbRole.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
 		cbRole = new JComboBox();
+		cbRole.setModel(new DefaultComboBoxModel(new String[] {"Quản lý", "Nhân viên"}));
 		cbRole.setBounds(235, 13, 100, 25);
 		panelEmp.add(cbRole);
 		cbRole.setForeground(new Color(25, 25, 112));
@@ -126,6 +128,7 @@ public class employee extends JPanel {
 		lbGender.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
 		cbGender = new JComboBox();
+		cbGender.setModel(new DefaultComboBoxModel(new String[] {"Nam", "Nữ"}));
 		cbGender.setBounds(260, 93, 75, 25);
 		panelEmp.add(cbGender);
 		cbGender.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -252,6 +255,7 @@ public class employee extends JPanel {
 		add(lbEmpList);
 		
 		cbFilter = new JComboBox();
+		cbFilter.setModel(new DefaultComboBoxModel(new String[] {"ID", "Tên"}));
 		cbFilter.setForeground(new Color(25, 25, 112));
 		cbFilter.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
 		cbFilter.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
