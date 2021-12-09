@@ -11,10 +11,14 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 import com.toedter.calendar.JDateChooser;
+
+import Controller.EmployeeController;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import java.awt.Canvas;
+import javax.swing.JScrollPane;
 
 public class employee extends JPanel {	
 	private static final long serialVersionUID = 1L;
@@ -22,11 +26,22 @@ public class employee extends JPanel {
 	private JTextField txfName;
 	private JTextField txfPhone;
 	private JTextField txfAddress;
-	private JTable tableEmp;
 	private JTextField txfEmail;
 	private JTextField txfPasswd;
 	private JTextField txfFind;
 	private JDateChooser txdate;
+	private JTable table;
+	private JComboBox cbRole;
+	private JComboBox cbGender;
+	private Canvas canvasAvt;
+	private JButton btnUpload;
+	private JButton btnAdd;
+	private JButton btnEdit;
+	private JButton btnDisable;
+	private JButton btnCancel;
+	private JButton btnSave;
+	private JComboBox cbFilter;
+	private JButton btnFind;
 	
 	public employee() {
 		setOpaque(false);
@@ -68,7 +83,7 @@ public class employee extends JPanel {
 		lbRole.setForeground(new Color(25, 25, 112));
 		lbRole.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
-		JComboBox cbRole = new JComboBox();
+		cbRole = new JComboBox();
 		cbRole.setBounds(235, 13, 100, 25);
 		panelEmp.add(cbRole);
 		cbRole.setForeground(new Color(25, 25, 112));
@@ -110,7 +125,7 @@ public class employee extends JPanel {
 		lbGender.setForeground(new Color(25, 25, 112));
 		lbGender.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 15));
 		
-		JComboBox cbGender = new JComboBox();
+		cbGender = new JComboBox();
 		cbGender.setBounds(260, 93, 75, 25);
 		panelEmp.add(cbGender);
 		cbGender.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -174,12 +189,12 @@ public class employee extends JPanel {
 		txfAddress.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 15));
 		txfAddress.setColumns(10);
 		
-		Canvas canvasAvt = new Canvas();
+		canvasAvt = new Canvas();
 		canvasAvt.setBounds(344, 10, 90, 116);
 		panelEmp.add(canvasAvt);
 		canvasAvt.setBackground(new Color(245, 255, 250));
 		
-		JButton btnUpload = new JButton("Upload");
+		btnUpload = new JButton("Upload");
 		btnUpload.setBounds(344, 130, 90, 30);
 		panelEmp.add(btnUpload);
 		btnUpload.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -188,7 +203,7 @@ public class employee extends JPanel {
 		btnUpload.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
 		btnUpload.setBackground(new Color(204, 204, 255));
 		
-		JButton btnAdd = new JButton("Add");
+		btnAdd = new JButton("Add");
 		btnAdd.setBounds(440, 10, 90, 30);
 		panelEmp.add(btnAdd);
 		btnAdd.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -197,7 +212,7 @@ public class employee extends JPanel {
 		btnAdd.setForeground(new Color(25, 25, 112));
 		btnAdd.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
 		
-		JButton btnEdit = new JButton("Edit");
+		btnEdit = new JButton("Edit");
 		btnEdit.setBounds(440, 60, 90, 30);
 		panelEmp.add(btnEdit);
 		btnEdit.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -205,7 +220,7 @@ public class employee extends JPanel {
 		btnEdit.setForeground(new Color(25, 25, 112));
 		btnEdit.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
 		
-		JButton btnDisable = new JButton("Disable");
+		btnDisable = new JButton("Disable");
 		btnDisable.setBounds(440, 110, 90, 30);
 		panelEmp.add(btnDisable);
 		btnDisable.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -213,7 +228,7 @@ public class employee extends JPanel {
 		btnDisable.setForeground(new Color(25, 25, 112));
 		btnDisable.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
 		
-		JButton btnCancel = new JButton("Cancel");
+		btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(440, 160, 90, 30);
 		panelEmp.add(btnCancel);
 		btnCancel.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -221,7 +236,7 @@ public class employee extends JPanel {
 		btnCancel.setForeground(new Color(25, 25, 112));
 		btnCancel.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 14));
 		
-		JButton btnSave = new JButton("Save");
+		btnSave = new JButton("Save");
 		btnSave.setBounds(440, 209, 90, 30);
 		panelEmp.add(btnSave);
 		btnSave.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -236,7 +251,7 @@ public class employee extends JPanel {
 		lbEmpList.setBounds(10, 280, 180, 30);
 		add(lbEmpList);
 		
-		JComboBox cbFilter = new JComboBox();
+		cbFilter = new JComboBox();
 		cbFilter.setForeground(new Color(25, 25, 112));
 		cbFilter.setFont(new Font("MS Reference Sans Serif", Font.PLAIN, 13));
 		cbFilter.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -252,7 +267,7 @@ public class employee extends JPanel {
 		txfFind.setBounds(350, 285, 130, 20);
 		add(txfFind);
 		
-		JButton btnFind = new JButton("Find");
+		btnFind = new JButton("Find");
 		btnFind.setForeground(new Color(25, 25, 112));
 		btnFind.setFont(new Font("Microsoft Sans Serif", Font.BOLD, 12));
 		btnFind.setBorder(new LineBorder(new Color(25, 25, 112), 1, true));
@@ -268,10 +283,14 @@ public class employee extends JPanel {
 		add(panelEmpList);
 		panelEmpList.setLayout(null);
 		
-		tableEmp = new JTable();
-		tableEmp.setBackground(new Color(176, 196, 222));
-		tableEmp.setBounds(0, 170, 530, -169);
-		panelEmpList.add(tableEmp);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 540, 180);
+		panelEmpList.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		
+		EmployeeController controll = new EmployeeController(txfID, txfName, txfPhone, txfAddress, txfEmail, txfPasswd, txfFind, txdate, table, cbRole, cbGender, canvasAvt, btnUpload, btnAdd, btnEdit, btnDisable, btnCancel, btnSave, cbFilter, btnFind);
 
 	}
 }
